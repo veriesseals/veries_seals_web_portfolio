@@ -1,0 +1,26 @@
+/* File: client/src/components/layout/Navbar.css */
+/* ---------------------------------------------------------------
+   Styles for the main navigation bar.
+   Look: minimal and crisp. Muted links, dark active link, thin
+   teal underline accent, off-white header that stays on top.
+   --------------------------------------------------------------- */
+
+/* --- Header wrapper ------------------------------------------- */
+/* "sticky" keeps the navbar at the top while the page scrolls.
+   The slightly see-through background + blur lets content softly
+   show through underneath it (a subtle frosted-glass effect). */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1030; /* Bootstrap's standard layer for fixed navbars */
+    background-color: rgba(247, 245, 240, 0.92); /* Off-white (--color-bg) at 92% */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); /* Safari support */
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* --- Navbar: feed our colors into Bootstrap's variables ------- */
+/* Bootstrap's navbar reads these --bs-* variables. Overriding them
+   here restyles it without fighting Bootstrap's own selectors. */
+

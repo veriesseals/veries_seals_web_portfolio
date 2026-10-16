@@ -1,0 +1,38 @@
+<!-- File: client/index.html -->
+<!--
+  The single HTML page that hosts the React app.
+  React renders everything inside <div id="root">.
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Browser tab icon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Makes the layout scale correctly on phones and tablets -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Short description shown by search engines and link previews -->
+    <meta
+      name="description"
+      content="Portfolio of Veries Seals III: software projects and apps built to solve real problems."
+    />
+
+    <!-- Google Fonts: "preconnect" opens the connection early so the font loads faster -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Manrope in weights 400 (regular), 500 (medium), 600 (semibold), 700 (bold).
+         display=swap shows a fallback font until Manrope finishes loading. -->
+    <link
+            href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+    />
+
+    <title>Veries Seals III | Portfolio</title>
+  </head>
+  <body>
+    <!-- React mounts the whole app here (see src/main.jsx) -->
+    <div id="root"></div>
+    <!-- Entry point: Vite loads and compiles this module -->
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+/* File: client/src/styles/variables.css */
+/* ---------------------------------------------------------------
+   Design tokens: the single source of truth for the site's look.
+   Change a value here and it updates everywhere it's used.
+   Starting palette: off-white base, teal accents, warm wood tone
+   for balance (industrial minimalist + warmth). We'll refine
+   these once we start on the visual design.
+   --------------------------------------------------------------- */
+:root {
+  /* --- Base surfaces --- */
+  --color-bg: #f7f5f0;          /* Off-white page background */
+  --color-surface: #ffffff;     /* Cards and panels */
+  --color-border: #e4e0d8;      /* Hairline dividers */
+
+  /* --- Text --- */
+  --color-text: #2b2b2b;        /* Charcoal body text (industrial) */
+  --color-text-muted: #6b6b6b;  /* Secondary text */
+
+  /* --- Accents --- */
+  --color-accent: #1f7a7a;      /* Primary teal */
+  --color-accent-dark: #155e5e; /* Teal hover/active state */
+  --color-warm: #b9835a;        /* Warm wood/clay accent */
+
+  /* --- Typography --- */
+  /* Manrope first; the rest are fallbacks if it fails to load */
+  --font-body: 'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: var(--font-body);
+
+  /* --- Spacing & shape --- */
+  --radius: 4px;                /* Crisp, slightly softened corners */
+  --nav-height: 72px;
+  --transition: 200ms ease;
+
+  /* --- Bootstrap overrides ---
+     Bootstrap 5.3 reads these CSS variables, so its components
+     pick up our palette without recompiling Sass. */
+  --bs-body-bg: var(--color-bg);
+  --bs-body-color: var(--color-text);
+  --bs-body-font-family: var(--font-body);
+  --bs-link-color: var(--color-accent);
+  --bs-link-color-rgb: 31, 122, 122;
+  --bs-link-hover-color: var(--color-accent-dark);
+  --bs-link-hover-color-rgb: 21, 94, 94;
+  --bs-border-color: var(--color-border);
+}
