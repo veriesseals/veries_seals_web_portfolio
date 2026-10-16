@@ -24,3 +24,9 @@
 /* Bootstrap's navbar reads these --bs-* variables. Overriding them
    here restyles it without fighting Bootstrap's own selectors. */
 
+.site-nav {
+    --bs-navbar-padding-y: 0;
+    --bs-navbar-color: var(--color-text-muted); /* Normal links */
+
+
+}
