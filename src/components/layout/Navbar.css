@@ -9,7 +9,6 @@
 /* "sticky" keeps the navbar at the top while the page scrolls.
    The slightly see-through background + blur lets content softly
    show through underneath it (a subtle frosted-glass effect). */
-
 .site-header {
     position: sticky;
     top: 0;
@@ -23,10 +22,100 @@
 /* --- Navbar: feed our colors into Bootstrap's variables ------- */
 /* Bootstrap's navbar reads these --bs-* variables. Overriding them
    here restyles it without fighting Bootstrap's own selectors. */
-
 .site-nav {
     --bs-navbar-padding-y: 0;
-    --bs-navbar-color: var(--color-text-muted); /* Normal links */
+    --bs-navbar-color: var(--color-text-muted);   /* Normal links */
+    --bs-navbar-hover-color: var(--color-text);   /* Hovered links */
+    --bs-navbar-active-color: var(--color-text);  /* Current page link */
+    --bs-navbar-nav-link-padding-x: 0;            /* We space links with "gap" instead */
+    min-height: var(--nav-height);
+}
 
+/* --- Brand: full name, bold, with teal hover ------------------- */
+.site-brand {
+    font-size: 1.05rem;
+    letter-spacing: 0.01em;
+}
 
+/* Both name parts share the same style, so "Veries" and
+   "Seals III" look identical. The comma means "apply this rule
+   to both classes". */
+.site-brand__first,
+.site-brand__last {
+    font-weight: 700;
+    color: var(--color-text);
+    transition: color var(--transition); /* Smooth fade to teal */
+}
+
+/* Hovering anywhere on the brand turns BOTH names teal together */
+.site-brand:hover .site-brand__first,
+.site-brand:hover .site-brand__last {
+    color: var(--color-accent);
+}
+
+/* --- Links (desktop) ------------------------------------------ */
+.site-nav__links {
+    gap: 2.5rem; /* Wide, airy spacing between links like the concept */
+}
+
+.site-nav__link {
+    position: relative; /* Anchor for the underline below */
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color var(--transition);
+}
+
+/* Thin teal underline. It starts at width 0 (scaleX(0)) and
+   grows from the left on hover, or stays visible on the
+   current page. Animating "transform" is smooth and cheap. */
+.site-nav__link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0.25rem;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition);
+}
+.site-nav__link:hover::after,
+.site-nav__link.active::after {
+    transform: scaleX(1);
+}
+
+/* --- Mobile menu button (☰ / ✕) ------------------------------- */
+.site-toggler {
+    border: none;
+    padding: 0.25rem;
+    font-size: 1.6rem;
+    line-height: 1;
+    color: var(--color-text);
+}
+/* Remove Bootstrap's blue glow (our global :focus-visible ring
+   still shows for keyboard users) */
+.site-toggler:focus {
+    box-shadow: none;
+}
+
+/* --- Tablets & phones (below Bootstrap's "md" = 768px) -------- */
+/* Links stack vertically as full-width rows with hairline dividers. */
+@media (max-width: 767px) {
+    .site-nav__links {
+        --bs-nav-link-padding-y: 0.85rem; /* Taller rows = easier to tap */
+        gap: 0;
+        padding-bottom: 1rem;
+    }
+    .site-nav__link {
+        border-bottom: 1px solid var(--color-border);
+    }
+    /* Underline effect doesn't suit stacked rows, so hide it... */
+    .site-nav__link::after {
+        display: none;
+    }
+    /* ...and mark the current page with teal text instead */
+    .site-nav__link.active {
+        color: var(--color-accent);
+    }
 }
